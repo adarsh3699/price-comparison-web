@@ -8,11 +8,17 @@ const app = express();
 
 app.use(bodyParser.json()); // Parse JSON bodies
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(
-	cors({
-		origin: ['http://localhost:3001'],
-	})
-);
+// app.use(cors());
+const allowlist = [
+	'https://comparison.bhemu.me/',
+	'http://localhost:3000/',
+	'http://localhost:3001/',
+	'https://price-comparison-web.vercel.app/',
+];
+
+app.use(cors(allowlist));
+
+// app.use(cors(corsOptionsDelegate));
 
 app.get('/', async function (req, res) {
 	const searchText = req.query?.search?.trim();

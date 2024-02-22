@@ -9,6 +9,9 @@ import Loader from './component/loader/Loader';
 
 import './style/App.css';
 
+const apiBaseUrl = 'https://easy-tuna-long-underwear.cyclic.app/';
+// const apiBaseUrl = 'http://localhost:3000/';
+
 function App() {
 	const [data, setData] = useState({});
 	const [page, setpage] = useState(1);
@@ -36,7 +39,7 @@ function App() {
 
 			try {
 				setLoading(true);
-				const response = await fetch('http://localhost:3000/?search=' + searchText + '&page=' + page);
+				const response = await fetch(apiBaseUrl + '?search=' + searchText + '&page=' + page);
 				const data = await response.json();
 				if (response.status === 200) {
 					setData(data);
