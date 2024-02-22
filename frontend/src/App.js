@@ -62,6 +62,7 @@ function App() {
 		if (search) {
 			handleSearch({ target: { searchBox: { value: search } } }, true);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const handlePageChange = useCallback(
