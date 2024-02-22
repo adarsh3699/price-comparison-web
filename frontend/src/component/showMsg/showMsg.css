@@ -1,0 +1,40 @@
+#msgBox {
+	position: fixed;
+	right: 0;
+	left: 0;
+	bottom: 30px;
+	z-index: 10000;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	max-width: 100%;
+}
+
+#textMsg {
+	padding: 5px 15px;
+	word-wrap: break-word;
+	border-radius: 10px;
+	padding: 10px 20px;
+	text-align: center;
+	box-sizing: border-box;
+	max-width: 90%;
+	background-color: red;
+}
+
+.error {
+	background-color: red !important;
+}
+
+.success {
+	background-color: green !important;
+}
+
+.warning {
+	background-color: orange !important;
+	color: black !important;
+	font-weight: 500;
+}
+
+.info {
+	background-color: blue !important;
+}

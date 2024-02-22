@@ -1,0 +1,143 @@
+{"requests":[{"indexName":"prod_mart_master_vertical","params":"analyticsTags:
+["web","400020","PANINDIABEAUTY","PANINDIABOOKS","PANINDIACRAFT","PANINDIADIGITAL","PANINDIAFASHION","PANINDIAFURNITURE","6217","PANINDIAGROCERIES","PANINDIAHOMEANDKITCHEN","PANINDIAHOMEIMPROVEMENT","PANINDIAJEWEL","S575","PANINDIASTL","PANINDIAWELLNESS"]
+attributesToHighlight: []
+attributesToRetrieve:
+["*","-algolia_facet","-alt_class_keywords","-available_stores","-avg_discount","-avg_discount_pct","-avg_discount_rate","-avg_mrp","-avg_selling_price","-search_keywords"]
+clickAnalytics: true
+enableRules: true
+facetFilters: [["category_tree.level0:Category"]]
+facets:
+["avg_discount_pct","avg_selling_price","brand","category_level.level4","category_tree.level0","category_tree.level1"]
+filters: availability_status:A AND (mart_availability:JIO OR mart_availability:JIO_INSTA OR mart_availability:JIO_WA OR
+mart_availability:JIO_INSTA_WA) AND (buybox_mrp.PANINDIABEAUTY.available:true OR buybox_mrp.PANINDIABOOKS.available:true
+OR buybox_mrp.PANINDIACRAFT.available:true OR buybox_mrp.PANINDIADIGITAL.available:true OR
+buybox_mrp.PANINDIAFASHION.available:true OR buybox_mrp.PANINDIAFURNITURE.available:true OR
+buybox_mrp.6217.available:true OR buybox_mrp.PANINDIAGROCERIES.available:true OR
+buybox_mrp.PANINDIAHOMEANDKITCHEN.available:true OR buybox_mrp.PANINDIAHOMEIMPROVEMENT.available:true OR
+buybox_mrp.PANINDIAJEWEL.available:true OR buybox_mrp.S575.available:true OR buybox_mrp.PANINDIASTL.available:true OR
+buybox_mrp.PANINDIAWELLNESS.available:true) AND (available_stores:PANINDIABEAUTY OR available_stores:PANINDIABOOKS OR
+available_stores:PANINDIACRAFT OR available_stores:PANINDIADIGITAL OR available_stores:PANINDIAFASHION OR
+available_stores:PANINDIAFURNITURE OR available_stores:6217 OR available_stores:PANINDIAGROCERIES OR
+available_stores:PANINDIAHOMEANDKITCHEN OR available_stores:PANINDIAHOMEIMPROVEMENT OR available_stores:PANINDIAJEWEL OR
+available_stores:S575 OR available_stores:PANINDIASTL OR available_stores:PANINDIAWELLNESS) AND ((inventory_stores:ALL
+OR inventory_stores:SVRR OR inventory_stores:SK8Q OR inventory_stores:SANS OR inventory_stores:SURR OR
+inventory_stores:general_zone OR inventory_stores:SANQ OR inventory_stores:SANS OR inventory_stores:SURR OR
+inventory_stores:general_zone OR inventory_stores:SANQ OR inventory_stores:electronics_zone OR
+inventory_stores:general_zone OR inventory_stores:R696 OR inventory_stores:SE40 OR inventory_stores:R080 OR
+inventory_stores:SK1M OR inventory_stores:Y344 OR inventory_stores:SJ93 OR inventory_stores:R396 OR
+inventory_stores:S573 OR inventory_stores:SLTY OR inventory_stores:V014 OR inventory_stores:SLKO OR
+inventory_stores:fashion_zone OR inventory_stores:S535 OR inventory_stores:SLG2 OR inventory_stores:SXJJ OR
+inventory_stores:R741 OR inventory_stores:SURR OR inventory_stores:R300 OR inventory_stores:SAFY OR
+inventory_stores:SLI1 OR inventory_stores:V050 OR inventory_stores:SH50 OR inventory_stores:SZBL OR
+inventory_stores:Y524 OR inventory_stores:R351 OR inventory_stores:SJ14 OR inventory_stores:V012 OR
+inventory_stores:SL9F OR inventory_stores:R975 OR inventory_stores:S402 OR inventory_stores:general_zone OR
+inventory_stores:V017 OR inventory_stores:SL7L OR inventory_stores:SB41 OR inventory_stores:SQ9C OR
+inventory_stores:SLTP OR inventory_stores:SANS OR inventory_stores:SL7Q OR inventory_stores:SG84 OR
+inventory_stores:SANQ OR inventory_stores:SH62 OR inventory_stores:SL7O OR inventory_stores:SH09 OR
+inventory_stores:SK3Y OR inventory_stores:V027 OR inventory_stores:S352 OR inventory_stores:440 OR inventory_stores:254
+OR inventory_stores:general_zone OR inventory_stores:60 OR inventory_stores:270 OR
+inventory_stores:groceries_zone_non-essential_services OR inventory_stores:general_zone OR
+inventory_stores:groceries_zone_essential_services OR inventory_stores:TMW6 OR inventory_stores:SANS OR
+inventory_stores:SURR OR inventory_stores:general_zone OR inventory_stores:SANQ OR inventory_stores:SANS OR
+inventory_stores:SURR OR inventory_stores:general_zone OR inventory_stores:SANQ OR inventory_stores:TMX5 OR
+inventory_stores:VLOR OR inventory_stores:S575 OR inventory_stores:SANS OR inventory_stores:SURR OR
+inventory_stores:general_zone OR inventory_stores:SANQ OR inventory_stores:HX0E OR inventory_stores_3p:ALL OR
+inventory_stores_3p:SVRR OR inventory_stores_3p:SK8Q OR inventory_stores_3p:SANS OR inventory_stores_3p:SURR OR
+inventory_stores_3p:general_zone OR inventory_stores_3p:SANQ OR inventory_stores_3p:SANS OR inventory_stores_3p:SURR OR
+inventory_stores_3p:general_zone OR inventory_stores_3p:SANQ OR inventory_stores_3p:electronics_zone OR
+inventory_stores_3p:general_zone OR inventory_stores_3p:R696 OR inventory_stores_3p:SE40 OR inventory_stores_3p:R080 OR
+inventory_stores_3p:SK1M OR inventory_stores_3p:Y344 OR inventory_stores_3p:SJ93 OR inventory_stores_3p:R396 OR
+inventory_stores_3p:S573 OR inventory_stores_3p:SLTY OR inventory_stores_3p:V014 OR inventory_stores_3p:SLKO OR
+inventory_stores_3p:fashion_zone OR inventory_stores_3p:S535 OR inventory_stores_3p:SLG2 OR inventory_stores_3p:SXJJ OR
+inventory_stores_3p:R741 OR inventory_stores_3p:SURR OR inventory_stores_3p:R300 OR inventory_stores_3p:SAFY OR
+inventory_stores_3p:SLI1 OR inventory_stores_3p:V050 OR inventory_stores_3p:SH50 OR inventory_stores_3p:SZBL OR
+inventory_stores_3p:Y524 OR inventory_stores_3p:R351 OR inventory_stores_3p:SJ14 OR inventory_stores_3p:V012 OR
+inventory_stores_3p:SL9F OR inventory_stores_3p:R975 OR inventory_stores_3p:S402 OR inventory_stores_3p:general_zone OR
+inventory_stores_3p:V017 OR inventory_stores_3p:SL7L OR inventory_stores_3p:SB41 OR inventory_stores_3p:SQ9C OR
+inventory_stores_3p:SLTP OR inventory_stores_3p:SANS OR inventory_stores_3p:SL7Q OR inventory_stores_3p:SG84 OR
+inventory_stores_3p:SANQ OR inventory_stores_3p:SH62 OR inventory_stores_3p:SL7O OR inventory_stores_3p:SH09 OR
+inventory_stores_3p:SK3Y OR inventory_stores_3p:V027 OR inventory_stores_3p:S352 OR inventory_stores_3p:440 OR
+inventory_stores_3p:254 OR inventory_stores_3p:general_zone OR inventory_stores_3p:60 OR inventory_stores_3p:270 OR
+inventory_stores_3p:groceries_zone_non-essential_services OR inventory_stores_3p:general_zone OR
+inventory_stores_3p:groceries_zone_essential_services OR inventory_stores_3p:TMW6 OR inventory_stores_3p:SANS OR
+inventory_stores_3p:SURR OR inventory_stores_3p:general_zone OR inventory_stores_3p:SANQ OR inventory_stores_3p:SANS OR
+inventory_stores_3p:SURR OR inventory_stores_3p:general_zone OR inventory_stores_3p:SANQ OR inventory_stores_3p:TMX5 OR
+inventory_stores_3p:VLOR OR inventory_stores_3p:S575 OR inventory_stores_3p:SANS OR inventory_stores_3p:SURR OR
+inventory_stores_3p:general_zone OR inventory_stores_3p:SANQ OR inventory_stores_3p:HX0E))
+highlightPostTag: __/ais-highlight__
+highlightPreTag: __ais-highlight__
+hitsPerPage: 12
+maxValuesPerFacet: 100
+page: 0
+query: iphone
+tagFilters: "},{"indexName":"prod_mart_master_vertical","params":"analytics=false
+analyticsTags:
+["web","400020","PANINDIABEAUTY","PANINDIABOOKS","PANINDIACRAFT","PANINDIADIGITAL","PANINDIAFASHION","PANINDIAFURNITURE","6217","PANINDIAGROCERIES","PANINDIAHOMEANDKITCHEN","PANINDIAHOMEIMPROVEMENT","PANINDIAJEWEL","S575","PANINDIASTL","PANINDIAWELLNESS"]
+attributesToHighlight: []
+attributesToRetrieve:
+["*","-algolia_facet","-alt_class_keywords","-available_stores","-avg_discount","-avg_discount_pct","-avg_discount_rate","-avg_mrp","-avg_selling_price","-search_keywords"]
+clickAnalytics: false
+enableRules: true
+facets: ["category_tree.level0"]
+filters: availability_status:A AND (mart_availability:JIO OR mart_availability:JIO_INSTA OR mart_availability:JIO_WA OR
+mart_availability:JIO_INSTA_WA) AND (buybox_mrp.PANINDIABEAUTY.available:true OR buybox_mrp.PANINDIABOOKS.available:true
+OR buybox_mrp.PANINDIACRAFT.available:true OR buybox_mrp.PANINDIADIGITAL.available:true OR
+buybox_mrp.PANINDIAFASHION.available:true OR buybox_mrp.PANINDIAFURNITURE.available:true OR
+buybox_mrp.6217.available:true OR buybox_mrp.PANINDIAGROCERIES.available:true OR
+buybox_mrp.PANINDIAHOMEANDKITCHEN.available:true OR buybox_mrp.PANINDIAHOMEIMPROVEMENT.available:true OR
+buybox_mrp.PANINDIAJEWEL.available:true OR buybox_mrp.S575.available:true OR buybox_mrp.PANINDIASTL.available:true OR
+buybox_mrp.PANINDIAWELLNESS.available:true) AND (available_stores:PANINDIABEAUTY OR available_stores:PANINDIABOOKS OR
+available_stores:PANINDIACRAFT OR available_stores:PANINDIADIGITAL OR available_stores:PANINDIAFASHION OR
+available_stores:PANINDIAFURNITURE OR available_stores:6217 OR available_stores:PANINDIAGROCERIES OR
+available_stores:PANINDIAHOMEANDKITCHEN OR available_stores:PANINDIAHOMEIMPROVEMENT OR available_stores:PANINDIAJEWEL OR
+available_stores:S575 OR available_stores:PANINDIASTL OR available_stores:PANINDIAWELLNESS) AND ((inventory_stores:ALL
+OR inventory_stores:SVRR OR inventory_stores:SK8Q OR inventory_stores:SANS OR inventory_stores:SURR OR
+inventory_stores:general_zone OR inventory_stores:SANQ OR inventory_stores:SANS OR inventory_stores:SURR OR
+inventory_stores:general_zone OR inventory_stores:SANQ OR inventory_stores:electronics_zone OR
+inventory_stores:general_zone OR inventory_stores:R696 OR inventory_stores:SE40 OR inventory_stores:R080 OR
+inventory_stores:SK1M OR inventory_stores:Y344 OR inventory_stores:SJ93 OR inventory_stores:R396 OR
+inventory_stores:S573 OR inventory_stores:SLTY OR inventory_stores:V014 OR inventory_stores:SLKO OR
+inventory_stores:fashion_zone OR inventory_stores:S535 OR inventory_stores:SLG2 OR inventory_stores:SXJJ OR
+inventory_stores:R741 OR inventory_stores:SURR OR inventory_stores:R300 OR inventory_stores:SAFY OR
+inventory_stores:SLI1 OR inventory_stores:V050 OR inventory_stores:SH50 OR inventory_stores:SZBL OR
+inventory_stores:Y524 OR inventory_stores:R351 OR inventory_stores:SJ14 OR inventory_stores:V012 OR
+inventory_stores:SL9F OR inventory_stores:R975 OR inventory_stores:S402 OR inventory_stores:general_zone OR
+inventory_stores:V017 OR inventory_stores:SL7L OR inventory_stores:SB41 OR inventory_stores:SQ9C OR
+inventory_stores:SLTP OR inventory_stores:SANS OR inventory_stores:SL7Q OR inventory_stores:SG84 OR
+inventory_stores:SANQ OR inventory_stores:SH62 OR inventory_stores:SL7O OR inventory_stores:SH09 OR
+inventory_stores:SK3Y OR inventory_stores:V027 OR inventory_stores:S352 OR inventory_stores:440 OR inventory_stores:254
+OR inventory_stores:general_zone OR inventory_stores:60 OR inventory_stores:270 OR
+inventory_stores:groceries_zone_non-essential_services OR inventory_stores:general_zone OR
+inventory_stores:groceries_zone_essential_services OR inventory_stores:TMW6 OR inventory_stores:SANS OR
+inventory_stores:SURR OR inventory_stores:general_zone OR inventory_stores:SANQ OR inventory_stores:SANS OR
+inventory_stores:SURR OR inventory_stores:general_zone OR inventory_stores:SANQ OR inventory_stores:TMX5 OR
+inventory_stores:VLOR OR inventory_stores:S575 OR inventory_stores:SANS OR inventory_stores:SURR OR
+inventory_stores:general_zone OR inventory_stores:SANQ OR inventory_stores:HX0E OR inventory_stores_3p:ALL OR
+inventory_stores_3p:SVRR OR inventory_stores_3p:SK8Q OR inventory_stores_3p:SANS OR inventory_stores_3p:SURR OR
+inventory_stores_3p:general_zone OR inventory_stores_3p:SANQ OR inventory_stores_3p:SANS OR inventory_stores_3p:SURR OR
+inventory_stores_3p:general_zone OR inventory_stores_3p:SANQ OR inventory_stores_3p:electronics_zone OR
+inventory_stores_3p:general_zone OR inventory_stores_3p:R696 OR inventory_stores_3p:SE40 OR inventory_stores_3p:R080 OR
+inventory_stores_3p:SK1M OR inventory_stores_3p:Y344 OR inventory_stores_3p:SJ93 OR inventory_stores_3p:R396 OR
+inventory_stores_3p:S573 OR inventory_stores_3p:SLTY OR inventory_stores_3p:V014 OR inventory_stores_3p:SLKO OR
+inventory_stores_3p:fashion_zone OR inventory_stores_3p:S535 OR inventory_stores_3p:SLG2 OR inventory_stores_3p:SXJJ OR
+inventory_stores_3p:R741 OR inventory_stores_3p:SURR OR inventory_stores_3p:R300 OR inventory_stores_3p:SAFY OR
+inventory_stores_3p:SLI1 OR inventory_stores_3p:V050 OR inventory_stores_3p:SH50 OR inventory_stores_3p:SZBL OR
+inventory_stores_3p:Y524 OR inventory_stores_3p:R351 OR inventory_stores_3p:SJ14 OR inventory_stores_3p:V012 OR
+inventory_stores_3p:SL9F OR inventory_stores_3p:R975 OR inventory_stores_3p:S402 OR inventory_stores_3p:general_zone OR
+inventory_stores_3p:V017 OR inventory_stores_3p:SL7L OR inventory_stores_3p:SB41 OR inventory_stores_3p:SQ9C OR
+inventory_stores_3p:SLTP OR inventory_stores_3p:SANS OR inventory_stores_3p:SL7Q OR inventory_stores_3p:SG84 OR
+inventory_stores_3p:SANQ OR inventory_stores_3p:SH62 OR inventory_stores_3p:SL7O OR inventory_stores_3p:SH09 OR
+inventory_stores_3p:SK3Y OR inventory_stores_3p:V027 OR inventory_stores_3p:S352 OR inventory_stores_3p:440 OR
+inventory_stores_3p:254 OR inventory_stores_3p:general_zone OR inventory_stores_3p:60 OR inventory_stores_3p:270 OR
+inventory_stores_3p:groceries_zone_non-essential_services OR inventory_stores_3p:general_zone OR
+inventory_stores_3p:groceries_zone_essential_services OR inventory_stores_3p:TMW6 OR inventory_stores_3p:SANS OR
+inventory_stores_3p:SURR OR inventory_stores_3p:general_zone OR inventory_stores_3p:SANQ OR inventory_stores_3p:SANS OR
+inventory_stores_3p:SURR OR inventory_stores_3p:general_zone OR inventory_stores_3p:SANQ OR inventory_stores_3p:TMX5 OR
+inventory_stores_3p:VLOR OR inventory_stores_3p:S575 OR inventory_stores_3p:SANS OR inventory_stores_3p:SURR OR
+inventory_stores_3p:general_zone OR inventory_stores_3p:SANQ OR inventory_stores_3p:HX0E))
+highlightPostTag: __/ais-highlight__
+highlightPreTag: __ais-highlight__
+hitsPerPage: 0
+maxValuesPerFacet: 100
+page: 0
+query: iphone"}]}

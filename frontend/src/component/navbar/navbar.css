@@ -1,0 +1,49 @@
+.navbar {
+	background-color: #191919;
+	padding: 0;
+	margin: 0;
+	box-shadow: 0 2px 4px 0 rgba(112, 111, 111, 0.1);
+	position: sticky;
+	width: 100%;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+	transition: all 0.3s;
+	box-sizing: border-box;
+}
+
+.navbar__logo {
+	width: fit-content;
+	flex: 0.5;
+	margin-right: 20px;
+}
+
+.navbar__logo span {
+	color: red;
+}
+
+.navbar__search {
+	display: flex;
+	background-color: #242526;
+	border-radius: 5px;
+}
+
+.navbar__search_input {
+	border: none;
+	background-color: unset;
+	outline: unset;
+	padding: 10px 20px;
+	width: 400px;
+	color: white;
+}
+
+.navbar__search_button {
+	background-color: unset;
+	border: unset;
+	cursor: pointer;
+}
