@@ -21,6 +21,9 @@
 	width: fit-content;
 	flex: 0.5;
 	margin-right: 20px;
+	cursor: pointer;
+	font-size: 30px;
+	font-weight: bold;
 }
 
 .navbar__logo span {
@@ -37,8 +40,9 @@
 	border: none;
 	background-color: unset;
 	outline: unset;
-	padding: 10px 20px;
+	padding: 8px 20px;
 	width: 400px;
+	font-size: 18px;
 	color: white;
 }
 
@@ -46,4 +50,27 @@
 	background-color: unset;
 	border: unset;
 	cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+	.navbar__logo {
+		font-size: 25px;
+	}
+
+	.navbar__search_input {
+		width: 200px;
+	}
+}
+@media screen and (max-width: 500px) {
+	.navbar {
+		padding: 0 10px;
+	}
+	.navbar__logo {
+		font-size: 18px;
+		margin-right: 10px;
+	}
+	.navbar__search_input {
+		width: 100px;
+		font-size: 16px;
+	}
 }

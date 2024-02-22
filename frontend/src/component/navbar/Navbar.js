@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
+
 import search_Icon from './search_Icon.svg';
 
 import './navbar.css';
 
-const Navbar = ({ handleSearch }) => {
+const Navbar = ({ handleSearch, resetToHomePage }) => {
 	const [searchText, setSearchText] = useState(new URLSearchParams(window.location.search).get('search') || '');
 	return (
 		<div className="navbar">
-			<div className="navbar__logo">
-				<h1>
-					Compare<span>Now</span>
-				</h1>
+			<div className="navbar__logo" onClick={resetToHomePage}>
+				Compare<span>Now</span>
 			</div>
 			<form className="navbar__search" onSubmit={handleSearch}>
 				<input

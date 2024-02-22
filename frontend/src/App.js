@@ -31,29 +31,30 @@ function App() {
 	}, []);
 
 	const handleSearch = useCallback(
-		async (e, isParams) => {
+		async (e, isParams, currentPage) => {
 			if (!isParams) e.preventDefault();
 			const searchText = e.target?.searchBox?.value?.trim();
 			if (!searchText) return handleMsgShown('Please enter a search term');
 			if (!isParams) navigate('/?search=' + searchText);
+			if (!currentPage) currentPage = new URLSearchParams(window.location.search).get('page');
 
 			try {
 				setLoading(true);
-				const response = await fetch(apiBaseUrl + '?search=' + searchText + '&page=' + page);
+				const response = await fetch(apiBaseUrl + '?search=' + searchText + '&page=' + currentPage);
 				const data = await response.json();
 				if (response.status === 200) {
 					setData(data);
-					console.log(data);
 				} else {
 					handleMsgShown(data?.message);
 				}
 			} catch (e) {
 				console.log(e);
+				handleMsgShown('Something went wrong');
 			} finally {
 				setLoading(false);
 			}
 		},
-		[handleMsgShown, navigate, page]
+		[handleMsgShown, navigate]
 	);
 
 	useEffect(() => {
@@ -63,14 +64,41 @@ function App() {
 		}
 	}, []);
 
+	const handlePageChange = useCallback(
+		(page) => {
+			if (page < 1) return handleMsgShown('You are already on first page');
+
+			setpage(page);
+			const search = new URLSearchParams(window.location.search).get('search');
+			navigate('/?search=' + search + '&page=' + page);
+			window.scrollTo(0, 0);
+			handleSearch({ target: { searchBox: { value: search } } }, true, page);
+		},
+		[handleMsgShown, navigate, handleSearch]
+	);
+
+	const resetToHomePage = useCallback(() => {
+		navigate('/');
+		setData({});
+		setpage(1);
+	}, [navigate]);
+
 	return (
 		<>
-			<Navbar handleSearch={handleSearch} />
+			<Navbar handleSearch={handleSearch} resetToHomePage={resetToHomePage} />
 			<Loader isLoading={loading} />
-			{data?.data?.map((item) => {
-				return <ItemContainer key={item?.id} item={item} />;
-			})}
-			{/* <PaginationBox data={data} page={page} setpage={setpage} handleSearch={handleSearch} /> */}
+			{data?.data &&
+				data?.data?.map((item) => {
+					return <ItemContainer key={item?.id} item={item} />;
+				})}
+			{data?.data && (
+				<PaginationBox
+					handlePageChange={handlePageChange}
+					page={page}
+					setpage={setpage}
+					handleSearch={handleSearch}
+				/>
+			)}
 			{msg && <ShowMsg msgText={msg?.text} type={msg?.type} />}
 		</>
 	);

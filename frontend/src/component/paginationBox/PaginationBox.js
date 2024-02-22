@@ -1,20 +1,34 @@
 import React from 'react';
 
-function PaginationBox() {
+import arrow from './arrow.svg';
+import './paginationBox.css';
+
+function PaginationBox({ page, handlePageChange }) {
 	return (
-		<div>
-			<div className="pagination">
-				<a href="#">&laquo;</a>
-				<a href="#">1</a>
-				<a href="#" className="active">
-					2
-				</a>
-				<a href="#">3</a>
-				<a href="#">4</a>
-				<a href="#">5</a>
-				<a href="#">6</a>
-				<a href="#">&raquo;</a>
+		<div className="pagination">
+			<div onClick={() => handlePageChange(1)}>First</div>
+
+			<div>
+				<img
+					src={arrow}
+					alt="arrow"
+					onClick={() => handlePageChange(page - 1)}
+					className="paginationLeftArrow paginationArrow"
+				/>
 			</div>
+			<div>{page}</div>
+			<div onClick={() => handlePageChange(page + 1)}>{page + 1}</div>
+			<div onClick={() => handlePageChange(page + 2)}>{page + 2}</div>
+			<div onClick={() => handlePageChange(page + 3)}>{page + 3}</div>
+			<div>
+				<img
+					src={arrow}
+					alt="arrow"
+					onClick={() => handlePageChange(page + 1)}
+					className="paginationRightArrow paginationArrow"
+				/>
+			</div>
+			<div onClick={() => handlePageChange(page + 100)}>+100</div>
 		</div>
 	);
 }

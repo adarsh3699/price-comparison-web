@@ -60,3 +60,53 @@
 	margin-right: 5px;
 	text-align: right;
 }
+
+@media screen and (max-width: 800px) {
+	.itemContainer {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	.productImg {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+	.productName {
+		margin-bottom: 20px;
+	}
+	.productPriceBox {
+		justify-content: center;
+	}
+	.productPrice {
+		font-size: 30px;
+	}
+	.productMRP {
+		font-size: 25px;
+	}
+	.product_discount {
+		font-size: 25px;
+	}
+	.product_source_icon {
+		margin: 10px 0;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.productName {
+		font-size: 18px;
+	}
+	.productPrice {
+		font-size: 25px;
+	}
+	.productMRP {
+		font-size: 20px;
+	}
+	.product_discount {
+		font-size: 20px;
+	}
+	.product_source_icon {
+		height: 30px;
+	}
+}
