@@ -7,6 +7,7 @@ import PaginationBox from './component/paginationBox/PaginationBox';
 import SearchBox from './component/searchBox/searchBox';
 import ShowMsg from './component/showMsg/ShowMsg';
 import Loader from './component/loader/Loader';
+import FootBar from './component/footer/FootBar';
 
 import './style/App.css';
 
@@ -85,6 +86,7 @@ function App() {
 		navigate('/');
 		setData({});
 		setpage(1);
+		window.scrollTo(0, 0);
 	}, [navigate]);
 
 	return (
@@ -95,22 +97,25 @@ function App() {
 				searchText={searchText}
 				setSearchText={setSearchText}
 			/>
-			<Loader isLoading={loading} />
+			<div className="appContainer" style={data?.data ? { padding: 'unset' } : null}>
+				<Loader isLoading={loading} />
 
-			{!data?.data && <SearchBox handleSearch={handleSearch} />}
+				{!data?.data && <SearchBox handleSearch={handleSearch} />}
 
-			{data?.data &&
-				data?.data?.map((item) => {
-					return <ItemContainer key={item?.id} item={item} />;
-				})}
-			{data?.data && (
-				<PaginationBox
-					handlePageChange={handlePageChange}
-					page={page}
-					setpage={setpage}
-					handleSearch={handleSearch}
-				/>
-			)}
+				{data?.data &&
+					data?.data?.map((item) => {
+						return <ItemContainer key={item?.id} item={item} />;
+					})}
+				{data?.data && (
+					<PaginationBox
+						handlePageChange={handlePageChange}
+						page={page}
+						setpage={setpage}
+						handleSearch={handleSearch}
+					/>
+				)}
+			</div>
+			<FootBar />
 			{msg && <ShowMsg msgText={msg?.text} type={msg?.type} />}
 		</>
 	);
