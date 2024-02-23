@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import search_Icon from './search_Icon.svg';
 
 import './navbar.css';
 
-const Navbar = ({ handleSearch, resetToHomePage }) => {
-	const [searchText, setSearchText] = useState(new URLSearchParams(window.location.search).get('search') || '');
+const Navbar = ({ handleSearch, resetToHomePage, searchText, setSearchText }) => {
 	return (
 		<div className="navbar">
 			<div className="navbar__logo" onClick={resetToHomePage}>

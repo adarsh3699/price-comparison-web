@@ -4,19 +4,22 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from './component/navbar/Navbar';
 import ItemContainer from './component/itemContainer/ItemContainer';
 import PaginationBox from './component/paginationBox/PaginationBox';
+import SearchBox from './component/searchBox/searchBox';
 import ShowMsg from './component/showMsg/ShowMsg';
 import Loader from './component/loader/Loader';
 
 import './style/App.css';
 
-const apiBaseUrl = 'https://easy-tuna-long-underwear.cyclic.app/';
-// const apiBaseUrl = 'http://localhost:3000/';
+// const apiBaseUrl = 'https://easy-tuna-long-underwear.cyclic.app/';
+const apiBaseUrl = 'http://localhost:3000/';
 
 function App() {
 	const [data, setData] = useState({});
 	const [page, setpage] = useState(1);
 	const [loading, setLoading] = useState(false);
 	const [msg, setMsg] = useState('');
+	const [searchText, setSearchText] = useState(new URLSearchParams(window.location.search).get('search') || '');
+
 	const navigate = useNavigate();
 
 	const handleMsgShown = useCallback((msgText, type) => {
@@ -37,7 +40,7 @@ function App() {
 			if (!searchText) return handleMsgShown('Please enter a search term');
 			if (!isParams) navigate('/?search=' + searchText);
 			if (!currentPage) currentPage = new URLSearchParams(window.location.search).get('page');
-
+			setSearchText(searchText);
 			try {
 				setLoading(true);
 				const response = await fetch(apiBaseUrl + '?search=' + searchText + '&page=' + currentPage);
@@ -86,8 +89,16 @@ function App() {
 
 	return (
 		<>
-			<Navbar handleSearch={handleSearch} resetToHomePage={resetToHomePage} />
+			<Navbar
+				handleSearch={handleSearch}
+				resetToHomePage={resetToHomePage}
+				searchText={searchText}
+				setSearchText={setSearchText}
+			/>
 			<Loader isLoading={loading} />
+
+			{!data?.data && <SearchBox handleSearch={handleSearch} />}
+
 			{data?.data &&
 				data?.data?.map((item) => {
 					return <ItemContainer key={item?.id} item={item} />;

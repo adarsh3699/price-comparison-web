@@ -1,0 +1,93 @@
+.searchBoxContainer {
+	text-align: center;
+	width: 80%;
+	margin: 10% auto;
+	background-color: #2a2b2d;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+}
+.searchBoxTitle {
+	font-size: 40px;
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+.searchBoxForm {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.searchBoxInput {
+	width: 70%;
+	height: 50px;
+	border: none;
+	border-radius: 5px 0px 0px 5px;
+	padding: 0 10px;
+	font-size: 20px;
+	outline: none;
+	background-color: #f7f7f7;
+	box-sizing: border-box;
+}
+
+.searchBoxFormBtn {
+	width: 20%;
+	height: 50px;
+	border: none;
+	border-radius: 0px 5px 5px 0px;
+	background-color: #eaeaea;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.searchBoxPara {
+	font-size: 20px;
+	margin-top: 30px;
+}
+
+@media screen and (max-width: 800px) {
+	.searchBoxContainer {
+		width: 90%;
+	}
+	.searchBoxTitle {
+		font-size: 30px;
+	}
+	.searchBoxInput {
+		width: 60%;
+		height: 45px;
+	}
+	.searchBoxFormBtn {
+		width: 30%;
+		height: 45px;
+	}
+	.searchBoxPara {
+		font-size: 18px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.searchBoxContainer {
+		width: 95%;
+		padding: 10px;
+		margin-top: 20%;
+	}
+	.searchBoxTitle {
+		font-size: 25px;
+	}
+	.searchBoxInput {
+		width: 75%;
+		height: 37px;
+		font-size: 18px;
+	}
+	.searchBoxFormBtn {
+		width: 25%;
+		height: 37px;
+		font-size: 18px;
+	}
+	.searchBoxPara {
+		font-size: 16px;
+		margin-top: 20px;
+	}
+}
