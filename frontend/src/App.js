@@ -86,6 +86,7 @@ function App() {
 		navigate('/');
 		setData({});
 		setpage(1);
+		setSearchText('');
 		window.scrollTo(0, 0);
 	}, [navigate]);
 
