@@ -11,8 +11,8 @@ import FootBar from './component/footer/FootBar';
 
 import './style/App.css';
 
-// const apiBaseUrl = 'https://easy-tuna-long-underwear.cyclic.app/';
-const apiBaseUrl = 'http://localhost:3000/';
+const apiBaseUrl = 'https://easy-tuna-long-underwear.cyclic.app/';
+// const apiBaseUrl = 'http://localhost:3000/';
 
 function App() {
 	const [data, setData] = useState({});
