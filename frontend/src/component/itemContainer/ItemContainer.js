@@ -1,12 +1,19 @@
 import React from 'react';
 import './itemContainer.css';
 
-const ItemContainer = ({ item }) => {
+const ItemContainer = ({ item, handleProductClick }) => {
 	return (
 		<div className="itemContainer">
-			<img src={item?.image} className="productImg" alt={item?.name} />
+			<img
+				src={item?.image}
+				className="productImg"
+				alt={item?.name}
+				onClick={() => handleProductClick(item.id)}
+			/>
 			<div>
-				<div className="productName">{item?.title}</div>
+				<div className="productName" onClick={() => handleProductClick(item.id)}>
+					{item?.title}
+				</div>
 				<div className="productPriceBox">
 					<div className="productPrice">₹{item?.source_price}</div>
 					<div className="productMRP">₹{item?.source_mrp}</div>

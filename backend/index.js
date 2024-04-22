@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const cheerio = require('cheerio');
 
 const port = 3000;
 const app = express();
@@ -34,6 +35,24 @@ app.get('/', async function (req, res) {
 				'&vuid=0&platform=1'
 		);
 		res.send(response.data);
+	} catch (error) {
+		console.error('Error:', error);
+		res.send(error);
+	}
+});
+
+app.get('/product/*', async function (req, res) {
+	const productId = req.params[0].trim();
+	if (!productId) return res.status(400).json({ message: 'productId is required' });
+
+	try {
+		const response = await axios.get('https://pricee.com/api/redirect/t.php?itemid=' + productId);
+		const $ = cheerio.load(response?.data);
+
+		const refreshContent = $('meta[http-equiv="refresh"]').attr('content');
+		const urlValue = refreshContent.split(';')[1].split('=')[1];
+
+		res.send({ status: response.status, productUrl: urlValue });
 	} catch (error) {
 		console.error('Error:', error);
 		res.send(error);

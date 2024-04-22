@@ -90,6 +90,24 @@ function App() {
 		window.scrollTo(0, 0);
 	}, [navigate]);
 
+	const handleProductClick = useCallback(
+		async (id) => {
+			try {
+				const response = await fetch(apiBaseUrl + 'product/' + id);
+				const data = await response.json();
+				if (response.status === 200) {
+					window.open(data.productUrl, '_blank').focus();
+				} else {
+					handleMsgShown(data?.message);
+				}
+			} catch (e) {
+				console.log(e);
+				handleMsgShown('Something went wrong');
+			}
+		},
+		[handleMsgShown]
+	);
+
 	return (
 		<>
 			<Navbar
@@ -105,7 +123,7 @@ function App() {
 
 				{data?.data &&
 					data?.data?.map((item) => {
-						return <ItemContainer key={item?.id} item={item} />;
+						return <ItemContainer key={item?.id} item={item} handleProductClick={handleProductClick} />;
 					})}
 				{data?.data && (
 					<PaginationBox

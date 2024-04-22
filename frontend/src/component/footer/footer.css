@@ -14,6 +14,8 @@
 .aboutMe {
 	color: white;
 	text-decoration: unset;
+	font-style: italic;
+	font-weight: 500;
 }
 
 .aboutMe:hover {
