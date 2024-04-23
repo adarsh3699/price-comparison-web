@@ -1,0 +1,22 @@
+.emptyCart {
+	font-size: 30px;
+	font-weight: 500;
+	margin-top: 20px;
+	text-align: center;
+	margin-top: 10%;
+}
+
+.emptyCart img {
+	margin-bottom: 20px;
+	width: 30%;
+}
+
+@media screen and (max-width: 800px) {
+	.emptyCart {
+		margin-top: 20%;
+		font-size: 25px;
+	}
+	.emptyCart img {
+		width: 50%;
+	}
+}

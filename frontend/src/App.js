@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 import Navbar from './component/navbar/Navbar';
 import ItemContainer from './component/itemContainer/ItemContainer';
-import PaginationBox from './component/paginationBox/PaginationBox';
 import SearchBox from './component/searchBox/searchBox';
+import EmptyCart from './component/emptyCart/EmptyCart';
 import ShowMsg from './component/showMsg/ShowMsg';
 import Loader from './component/loader/Loader';
+import PaginationBox from './component/paginationBox/PaginationBox';
 import FootBar from './component/footer/FootBar';
 
 import './style/App.css';
@@ -119,13 +120,15 @@ function App() {
 			<div className="appContainer" style={data?.data ? { padding: 'unset' } : null}>
 				<Loader isLoading={loading} />
 
-				{!data?.data && <SearchBox handleSearch={handleSearch} />}
+				{!data?.data && !searchText && <SearchBox handleSearch={handleSearch} />}
 
-				{data?.data &&
-					data?.data?.map((item) => {
-						return <ItemContainer key={item?.id} item={item} handleProductClick={handleProductClick} />;
-					})}
-				{data?.data && (
+				{data?.data?.length === 0 && <EmptyCart />}
+
+				{data?.data?.map((item) => {
+					return <ItemContainer key={item?.id} item={item} handleProductClick={handleProductClick} />;
+				})}
+
+				{data?.data?.length > 0 && (
 					<PaginationBox
 						handlePageChange={handlePageChange}
 						page={page}
