@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import search_Icon from './search_Icon.svg';
 
 import './navbar.css';
 
-const Navbar = ({ handleSearch, resetToHomePage, searchText, setSearchText }) => {
+const Navbar = ({ handleSearch, setData, setPage, searchText, setSearchText }) => {
+	const navigate = useNavigate();
+
+	const resetToHomePage = useCallback(() => {
+		navigate('/');
+		setData({});
+		setPage(1);
+		setSearchText('');
+		window.scrollTo(0, 0);
+	}, [navigate, setData, setPage, setSearchText]);
 	return (
 		<div className="navbar">
 			<div className="navbar__logo" onClick={resetToHomePage}>

@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import arrow from './arrow.svg';
 import './paginationBox.css';
 
-function PaginationBox({ page, handlePageChange }) {
+function PaginationBox({ page, setPage, handleSearch, handleMsgShown }) {
+	const navigate = useNavigate();
+
+	const handlePageChange = useCallback(
+		(page) => {
+			if (page < 1) return handleMsgShown('You are already on first page');
+
+			setPage(page);
+			const search = new URLSearchParams(window.location.search).get('search');
+			navigate('/?search=' + search + '&page=' + page);
+			window.scrollTo(0, 0);
+			handleSearch({ target: { searchBox: { value: search } } }, true, page);
+		},
+		[handleMsgShown, setPage, navigate, handleSearch]
+	);
 	return (
 		<div className="pagination">
 			<div onClick={() => handlePageChange(1)}>First</div>
@@ -28,7 +43,7 @@ function PaginationBox({ page, handlePageChange }) {
 					className="paginationRightArrow paginationArrow"
 				/>
 			</div>
-			<div onClick={() => handlePageChange(page + 100)}>+100</div>
+			<div onClick={() => handlePageChange(page + 10)}>+10</div>
 		</div>
 	);
 }

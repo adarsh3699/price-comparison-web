@@ -5,6 +5,7 @@ import Navbar from './component/navbar/Navbar';
 import ItemContainer from './component/itemContainer/ItemContainer';
 import SearchBox from './component/searchBox/searchBox';
 import EmptyCart from './component/emptyCart/EmptyCart';
+import LoadingDialog from './component/loadingDialog/LoadingDialog';
 import ShowMsg from './component/showMsg/ShowMsg';
 import Loader from './component/loader/Loader';
 import PaginationBox from './component/paginationBox/PaginationBox';
@@ -17,8 +18,9 @@ const apiBaseUrl = 'https://easy-tuna-long-underwear.cyclic.app/';
 
 function App() {
 	const [data, setData] = useState({});
-	const [page, setpage] = useState(1);
+	const [page, setPage] = useState(1);
 	const [loading, setLoading] = useState(false);
+	const [ProductIsLoading, setProductIsLoading] = useState(false);
 	const [msg, setMsg] = useState('');
 	const [searchText, setSearchText] = useState(new URLSearchParams(window.location.search).get('search') || '');
 
@@ -70,50 +72,12 @@ function App() {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	const handlePageChange = useCallback(
-		(page) => {
-			if (page < 1) return handleMsgShown('You are already on first page');
-
-			setpage(page);
-			const search = new URLSearchParams(window.location.search).get('search');
-			navigate('/?search=' + search + '&page=' + page);
-			window.scrollTo(0, 0);
-			handleSearch({ target: { searchBox: { value: search } } }, true, page);
-		},
-		[handleMsgShown, navigate, handleSearch]
-	);
-
-	const resetToHomePage = useCallback(() => {
-		navigate('/');
-		setData({});
-		setpage(1);
-		setSearchText('');
-		window.scrollTo(0, 0);
-	}, [navigate]);
-
-	const handleProductClick = useCallback(
-		async (id) => {
-			try {
-				const response = await fetch(apiBaseUrl + 'product/' + id);
-				const data = await response.json();
-				if (response.status === 200) {
-					window.open(data.productUrl, '_blank').focus();
-				} else {
-					handleMsgShown(data?.message);
-				}
-			} catch (e) {
-				console.log(e);
-				handleMsgShown('Something went wrong');
-			}
-		},
-		[handleMsgShown]
-	);
-
 	return (
 		<>
 			<Navbar
 				handleSearch={handleSearch}
-				resetToHomePage={resetToHomePage}
+				setData={setData}
+				setPage={setPage}
 				searchText={searchText}
 				setSearchText={setSearchText}
 			/>
@@ -125,20 +89,29 @@ function App() {
 				{data?.data?.length === 0 && <EmptyCart />}
 
 				{data?.data?.map((item) => {
-					return <ItemContainer key={item?.id} item={item} handleProductClick={handleProductClick} />;
+					return (
+						<ItemContainer
+							key={item?.id}
+							item={item}
+							apiBaseUrl={apiBaseUrl}
+							handleMsgShown={handleMsgShown}
+							setProductIsLoading={setProductIsLoading}
+						/>
+					);
 				})}
 
 				{data?.data?.length > 0 && (
 					<PaginationBox
-						handlePageChange={handlePageChange}
 						page={page}
-						setpage={setpage}
+						setPage={setPage}
 						handleSearch={handleSearch}
+						handleMsgShown={handleMsgShown}
 					/>
 				)}
 			</div>
 			<FootBar />
 			{msg && <ShowMsg msgText={msg?.text} type={msg?.type} />}
+			{ProductIsLoading && <LoadingDialog setProductIsLoading={setProductIsLoading} />}
 		</>
 	);
 }
