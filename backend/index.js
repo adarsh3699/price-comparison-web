@@ -50,7 +50,8 @@ app.get('/product/*', async function (req, res) {
 		const $ = cheerio.load(response?.data);
 
 		const refreshContent = $('meta[http-equiv="refresh"]').attr('content');
-		const urlValue = refreshContent.split(';')[1].split('=')[1];
+		let urlValue = refreshContent?.split(';')[1]?.split('=')[1];
+		if (!urlValue) urlValue = $('link[rel="canonical"]').attr('href');
 
 		res.send({ status: response.status, productUrl: urlValue });
 	} catch (error) {
