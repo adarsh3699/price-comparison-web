@@ -84,7 +84,7 @@ function App() {
 			<div className="appContainer" style={data?.data ? { padding: 'unset' } : null}>
 				<Loader isLoading={loading} />
 
-				{!data?.data && !searchText && <SearchBox handleSearch={handleSearch} />}
+				{!data?.data && !loading && <SearchBox handleSearch={handleSearch} />}
 
 				{data?.data?.length === 0 && <EmptyCart />}
 
