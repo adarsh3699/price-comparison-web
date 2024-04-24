@@ -18,7 +18,7 @@ const ItemContainer = ({ item, apiBaseUrl, handleMsgShown, setProductIsLoading }
 				}
 			} catch (e) {
 				console.log(e);
-				handleMsgShown('Something went wrong');
+				handleMsgShown('Please allow popup to opening');
 			}
 		},
 		[apiBaseUrl, handleMsgShown, setProductIsLoading]
