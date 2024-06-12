@@ -13,7 +13,7 @@ import FootBar from './component/footer/FootBar';
 
 import './style/App.css';
 
-const apiBaseUrl = 'https://price-comparison-web.onrender.com/';
+const apiBaseUrl = 'https://comparison-api.bhemu.me/';
 // const apiBaseUrl = 'http://localhost:3000/';
 
 function App() {
