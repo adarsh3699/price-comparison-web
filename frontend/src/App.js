@@ -26,12 +26,12 @@ function App() {
 
 	const navigate = useNavigate();
 
-	const handleMsgShown = useCallback((msgText, type) => {
+	const handleMsgShown = useCallback((msgText, type, duration) => {
 		if (msgText) {
 			setMsg({ text: msgText, type: type });
 			setTimeout(() => {
 				setMsg({ text: '', type: '' });
-			}, 2500);
+			}, duration || 2500);
 		} else {
 			console.log('Please Provide Text Msg');
 		}
@@ -45,8 +45,20 @@ function App() {
 			if (!isParams) navigate('/?search=' + searchText);
 			if (!currentPage) currentPage = new URLSearchParams(window.location.search).get('page');
 			setSearchText(searchText);
+			let isAPIDelay = true;
 			try {
 				setLoading(true);
+
+				setTimeout(() => {
+					if (isAPIDelay) {
+						handleMsgShown(
+							'Please wait, we are using a free server. it may take some time.',
+							'warning',
+							5000
+						);
+					}
+				}, 3000);
+
 				const response = await fetch(apiBaseUrl + '?search=' + searchText + '&page=' + currentPage);
 				const data = await response.json();
 				if (response.status === 200) {
@@ -59,6 +71,7 @@ function App() {
 				handleMsgShown('Something went wrong');
 			} finally {
 				setLoading(false);
+				isAPIDelay = false;
 			}
 		},
 		[handleMsgShown, navigate]
