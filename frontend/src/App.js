@@ -14,7 +14,7 @@ import FootBar from './component/footer/FootBar';
 import './style/App.css';
 
 const apiBaseUrl = 'https://comparison-api.bhemu.me/';
-// const apiBaseUrl = 'http://localhost:3000/';
+// const apiBaseUrl = 'http://localhost:10000/';
 
 function App() {
 	const [data, setData] = useState({});

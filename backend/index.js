@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const cheerio = require('cheerio');
 
-const port = 3000;
+const port = 10000;
 const app = express();
 
 app.use(bodyParser.json()); // Parse JSON bodies
