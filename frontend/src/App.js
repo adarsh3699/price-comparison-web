@@ -52,9 +52,9 @@ function App() {
 				setTimeout(() => {
 					if (isAPIDelay) {
 						handleMsgShown(
-							'Please wait, we are using a free server. it may take some time.',
+							'Please wait, We are using a free server. The first time, the server takes a while (1-2 minutes) to start.',
 							'warning',
-							5000
+							10000
 						);
 					}
 				}, 3000);
