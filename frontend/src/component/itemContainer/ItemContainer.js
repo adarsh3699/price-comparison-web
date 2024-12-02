@@ -31,9 +31,12 @@ const ItemContainer = ({ item, apiBaseUrl, handleMsgShown, setProductIsLoading }
 			<img
 				src={item?.image || noImage}
 				className="productImg"
-				alt={item?.name}
+				alt={item?.name || 'Product Image'}
 				loading="lazy"
 				onClick={() => handleProductClick(item.id)}
+				onError={(e) => {
+					e.target.src = noImage; // Replace with noImage logo on error
+				}}
 			/>
 			<div>
 				<div className="productName" onClick={() => handleProductClick(item.id)}>
