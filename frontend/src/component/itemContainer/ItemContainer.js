@@ -1,5 +1,7 @@
 import React, { useCallback } from 'react';
 
+import noImage from '../../assets/noImage.png';
+
 import './itemContainer.css';
 
 const ItemContainer = ({ item, apiBaseUrl, handleMsgShown, setProductIsLoading }) => {
@@ -27,9 +29,10 @@ const ItemContainer = ({ item, apiBaseUrl, handleMsgShown, setProductIsLoading }
 	return (
 		<div className="itemContainer">
 			<img
-				src={item?.image}
+				src={item?.image || noImage}
 				className="productImg"
 				alt={item?.name}
+				loading="lazy"
 				onClick={() => handleProductClick(item.id)}
 			/>
 			<div>
