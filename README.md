@@ -5,7 +5,6 @@ A modern, responsive web application that helps users compare product prices acr
 ![Project Status](https://img.shields.io/badge/Status-Production-success)
 ![React](https://img.shields.io/badge/React-18.2.0-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-green)
-![License](https://img.shields.io/badge/License-ISC-yellow)
 
 ## 🌟 Features
 
