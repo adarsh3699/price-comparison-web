@@ -11,9 +11,11 @@ app.use(bodyParser.json()); // Parse JSON bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(cors());
 const allowlist = [
+	'https://comparison.bhemu.in/',
 	'https://comparison.bhemu.me/',
 	'http://localhost:3000/',
 	'http://localhost:3001/',
+	'https://comparison-bhemu.vercel.app/',
 	'https://price-comparison-web.vercel.app/',
 ];
 
